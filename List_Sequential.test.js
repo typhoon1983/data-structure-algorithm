@@ -50,13 +50,13 @@ test('Sequential List insertElement', () => {
   expect(listA.insertElement(11,1)).toBe(null);
   expect(listB.insertElement(0,0)).toBe(null);
   expect(listB.insertElement(6,7)).toBe(null);
-  expect(listB.insertElement(0,1)).toEqual([0,1,2,3,4,5]);
-  expect(listB.insertElement(6,7)).toEqual([0,1,2,3,4,5,6]);
+  expect(listB.insertElement(0,1).elements).toEqual([0,1,2,3,4,5]);
+  expect(listB.insertElement(6,7).elements).toEqual([0,1,2,3,4,5,6]);
 });
 
 test('Sequential List deleteElement', () => {
   expect(listA.deleteElement(0)).toBe(null);
-  expect(listA.deleteElement(1)).toEqual([2,3,4,5,6,7,8,9,10]);
+  expect(listA.deleteElement(1).elements).toEqual([2,3,4,5,6,7,8,9,10]);
   expect(listA.deleteElement(10)).toBe(null);
 });
 

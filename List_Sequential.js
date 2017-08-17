@@ -1,7 +1,7 @@
 class SeqList {
 
   /*
-   *  Constructor, generate the SeqList from the arguments passed in
+   *  Constructor, generate the SeqList instance by passing in an array of values and specifying a maxSize of the element list.
    */
   constructor(elements = [], maxSize = 0) {
     this.maxSize = maxSize;
@@ -10,6 +10,7 @@ class SeqList {
 
   /*
    *  Empty the SeqList
+   *  @return this SeqList after empty.
    */
   clearList(){
     // this.elements is the only place referencing the original array which will be Garbage Collected after being replaced by a new empty array
@@ -19,6 +20,7 @@ class SeqList {
 
   /*
    *  Getter, elements length of the SeqList
+   *  @return length of the element list.
    */
   get length(){
     return this.elements.length;
@@ -26,6 +28,8 @@ class SeqList {
 
   /*
    *  Get element by specify index(1-based)
+   *  @param i, index(1-based)
+   *  @return value of the element on the specified index
    */
   getElement(i){
     i--;
@@ -34,6 +38,8 @@ class SeqList {
 
   /*
    *  Return element(first appearance) index(1-based) by specify a value
+   *  @param x, the value target element holds
+   *  @return the index(1-based) of the target element if exists, otherwise null
    */
   findElement(x){
     let index = this.elements.indexOf(x);
@@ -42,6 +48,9 @@ class SeqList {
 
   /*
    *  Return element before the specified index(1-based)
+   *  @param i, index(1-based)
+   *  @return value of the element which sits before the passed in index in the SeqList, if exists.
+   *          otherwise null.
    */
   getPrevElement(i){
     i--;
@@ -50,6 +59,9 @@ class SeqList {
 
   /*
    *  Return element after the specified index(1-based)
+   *  @param i, index(1-based)
+   *  @return value of the element which sits after the passed in index in the SeqList, if exists.
+   *          otherwise null.
    */
   getNextElement(i){
     i--;
@@ -58,6 +70,9 @@ class SeqList {
 
   /*
    *  Insert element at the specified index(1-based)
+   *  @param x, value the element holds
+   *  @param i, index(1-based)
+   *  @return this SeqList after insert
    */
   insertElement(x,i){
     i--;
@@ -65,11 +80,13 @@ class SeqList {
       return null;
     }
     this.elements.splice(i,0,x);
-    return this.elements;
+    return this;
   }
 
   /*
    *  Delete element at the specified index(1-based)
+   *  @param i, index(1-based)
+   *  @return this SeqList after deletion
    */
   deleteElement(i){
     i--;
@@ -77,7 +94,7 @@ class SeqList {
       return null;
     }
     this.elements.splice(i,1);
-    return this.elements;
+    return this;
   }
 }
 
