@@ -1,9 +1,4 @@
-export class SinglyLinkedListNode {
-  constructor(data = null, next = null) {
-    this.data = data;
-    this.next = next;
-  }
-}
+import {SinglyLinkedNode} from './_Node';
 
 export default class SinglyLinkedList {
 
@@ -11,10 +6,10 @@ export default class SinglyLinkedList {
    *  Constructor, generate the LinkList instance by passing in an array of values and specifying a maxSize of the element list.
    */
   constructor(elements = []) {
-    this.head = new SinglyLinkedListNode();
+    this.head = new SinglyLinkedNode();
     this.length = 0;
     elements.reduce((accumulator,currentValue)=>{
-      let node = new SinglyLinkedListNode(currentValue);
+      let node = new SinglyLinkedNode(currentValue);
       accumulator.next = node;
       this.length++;
       return node;
@@ -32,17 +27,17 @@ export default class SinglyLinkedList {
   }
 
   /*
-   *  Get element by specify index(1-based)
+   *  Find element by specify index(1-based)
    *  @param i, index(1-based)
    *  @return value of the element on the specified index
    */
-  getElement(i){
+  findElement(i){
     let currentNode = this.head;
     while(i > 0 && currentNode.next){
       currentNode = currentNode.next;
       i--;
     }
-    return i > 0 ? null : currentNode.data;
+    return i > 0 ? this.head : currentNode;
   }
 
   /*
@@ -50,7 +45,7 @@ export default class SinglyLinkedList {
    *  @param x, the value target element holds
    *  @return the index(1-based) of the target element if exists, otherwise null
    */
-  findElement(x){
+  getElementIndex(x){
     let currentNode = this.head, i = 0;
     while(currentNode.next){
       i++;
@@ -69,21 +64,12 @@ export default class SinglyLinkedList {
    *  @return this LinkList after insert
    */
   insertElement(x,i){
-    let currentNode = this.head;
-    let newNode = new SinglyLinkedListNode(x);
-    if(i <= this.length + 1){
-      while(i > 0){
-        if(i == 1){
-          [currentNode.next, newNode.next] = [newNode, currentNode.next];
-          this.length++;
-          return this;
-        }
-        else{
-          currentNode = currentNode.next;
-          i--;
-        }
-      }
-      return null;
+    if(i > 0 && i <= this.length + 1){
+      let prevNode = this.findElement(i-1);
+      let newNode = new SinglyLinkedNode(x);
+      [prevNode.next, newNode.next] = [newNode, prevNode.next];
+      this.length++;
+      return this;
     }
     return null;
   }
@@ -94,20 +80,12 @@ export default class SinglyLinkedList {
    *  @return this LinkList after deletion
    */
   deleteElement(i){
-    let currentNode = this.head;
-    if(i <= this.length){
-      while(i > 0 && currentNode.next){
-        if(i == 1){
-          currentNode.next = currentNode.next.next;
-          this.length--;
-          return this;
-        }
-        else{
-          currentNode = currentNode.next;
-          i--;
-        }
-      }
-      return null;
+    if(i > 0 && i <= this.length){
+      let prevNode = this.findElement(i-1);
+      let currentNode = this.findElement(i);
+      prevNode.next = currentNode.next;
+      this.length--;
+      return this;
     }
     return null;
   }
