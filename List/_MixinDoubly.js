@@ -9,11 +9,9 @@ export default (Base) => class extends Base {
     return NodeDoublyLinked;
   }
 
-  getPriorNode(node){
-    return node.prior;
+  clearList(){
+    this.head.prior = this.head.next = this.tail;
+    return super.clearList();
   }
 
-  getNextNode(node){
-    return node.next;
-  }
 }

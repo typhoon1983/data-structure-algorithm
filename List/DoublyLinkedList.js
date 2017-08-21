@@ -27,30 +27,10 @@ export default class DoublyLinkedList extends MixinLinked(MixinDoubly(LinkedList
    *  @param i, index(1-based)
    *  @return this LinkList after insert
    */
-  insertElement(x,i){
-    if(i > 0 && i <= this.length + 1){
-      let prevNode = this.findElement(i-1);
-      let newNode = new DoublyLinkedNode(x);
-      [prevNode.next, newNode.next] = [newNode, prevNode.next];
-      this.length++;
-      return this;
-    }
-    return null;
-  }
 
   /*
    *  Delete element at the specified index(1-based)
    *  @param i, index(1-based)
    *  @return this LinkList after deletion
    */
-  deleteElement(i){
-    if(i > 0 && i <= this.length){
-      let prevNode = this.findElement(i-1);
-      let currentNode = this.findElement(i);
-      prevNode.next = currentNode.next;
-      this.length--;
-      return this;
-    }
-    return null;
-  }
 }

@@ -24,7 +24,6 @@ export default class ListLinked {
    */
   clearList(){
     this.length = 0;
-    this.head.next = this.tail;
     return this;
   }
 
@@ -39,7 +38,7 @@ export default class ListLinked {
       currentNode = currentNode.next;
       i--;
     }
-    return i > 0 ? this.head : currentNode;
+    return i === 0 ? currentNode : null;
   }
 
   /*
@@ -69,7 +68,8 @@ export default class ListLinked {
     if(i > 0 && i <= this.length + 1){
       let prevNode = this.getElement(i-1);
       let newNode = new this.NodeType(x);
-      [prevNode.next, newNode.next] = [newNode, prevNode.next];
+      newNode.setLink(prevNode.next);
+      prevNode.setLink(newNode);
       this.length++;
       return this;
     }
@@ -85,7 +85,7 @@ export default class ListLinked {
     if(i > 0 && i <= this.length){
       let prevNode = this.getElement(i-1);
       let currentNode = this.getElement(i);
-      prevNode.next = currentNode.next;
+      prevNode.setLink(currentNode.next);
       this.length--;
       return this;
     }

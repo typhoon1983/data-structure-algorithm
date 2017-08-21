@@ -18,10 +18,11 @@ test('Link List get length', () => {
 });
 
 test('Link List getElement', () => {
+  expect(listA.getElement(-1)).toBe(null);
   expect(listA.getElement(0).data).toBe(null);
   expect(listA.getElement(1).data).toBe(1);
   expect(listA.getElement(5).data).toBe(5);
-  expect(listA.getElement(6).data).toBe(null);
+  expect(listA.getElement(6)).toBe(null);
 });
 
 test('Link List getElementIndex', () => {
@@ -44,7 +45,7 @@ test('Link List deleteElement', () => {
   expect(listA.deleteElement(0)).toBe(null);
   expect(listA.deleteElement(1).getElement(1).data).toBe(1);
   expect(listA.length).toBe(6);
-  expect(listA.deleteElement(6).getElement(6)).toBe(listA.head);
+  expect(listA.deleteElement(6).getElement(6)).toBe(null);
   expect(listA.getElement(5).next).toBe(listA.head);
   expect(listA.deleteElement(6)).toBe(null);
   expect(listB.insertElement(1,1).deleteElement(1).head.next).toBe(listB.head);

@@ -8,4 +8,9 @@ export default (Base) => class extends Base {
   static get nodeType(){
     return NodeSinglyLinked;
   }
+
+  clearList(){
+    this.head.next = this.tail;
+    return super.clearList();
+  }
 }

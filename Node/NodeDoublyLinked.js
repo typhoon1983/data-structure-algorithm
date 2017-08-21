@@ -8,6 +8,8 @@ export default class DoublyLinkedNode extends Node {
   }
   setLink(node){
     this.next = node;
-    node.prior = this;
+    if(node instanceof DoublyLinkedNode){
+      node.prior = this;
+    }
   }
 }

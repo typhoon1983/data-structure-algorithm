@@ -1,6 +1,6 @@
 import LinkedList from './_LinkedList';
 import MixinDoubly from './_MixinDoubly';
-import MixinCircular from './_MixinLinked';
+import MixinCircular from './_MixinCircular';
 
 export default class CircularDoublyLinkedList extends MixinCircular(MixinDoubly(LinkedList)) {
 
