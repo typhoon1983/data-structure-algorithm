@@ -1,4 +1,4 @@
-import NodeSinglyLinked from '../Node/NodeSinglyLinked';
+import SinglyLinkedNode from '../Node/SinglyLinkedNode';
 
 export default (Base) => class extends Base {
   /*
@@ -6,7 +6,7 @@ export default (Base) => class extends Base {
    *  @return node class.
    */
   static get nodeType(){
-    return NodeSinglyLinked;
+    return SinglyLinkedNode;
   }
 
   clearList(){

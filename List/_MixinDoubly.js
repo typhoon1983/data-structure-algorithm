@@ -1,4 +1,4 @@
-import NodeDoublyLinked from '../Node/NodeDoublyLinked';
+import DoublyLinkedNode from '../Node/DoublyLinkedNode';
 
 export default (Base) => class extends Base {
   /*
@@ -6,7 +6,7 @@ export default (Base) => class extends Base {
    *  @return node class.
    */
   static get nodeType(){
-    return NodeDoublyLinked;
+    return DoublyLinkedNode;
   }
 
   clearList(){
