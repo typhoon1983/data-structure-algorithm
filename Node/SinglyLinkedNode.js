@@ -15,7 +15,7 @@ export default class SinglyLinkedNode extends Node {
   /**
    * Appending the specified node to current node
    * @param {SinglyLinkedNode} node target node which will be appended to current node
-   * @return {SinglyLinkedNode} current node
+   * @returns {SinglyLinkedNode} current node
    */
   setLink(node){
     let isSLN = node instanceof SinglyLinkedNode;

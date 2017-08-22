@@ -17,7 +17,7 @@ export default class DoublyLinkedNode extends Node {
   /**
    * Appending the specified node to current node
    * @param {DoublyLinkedNode} node target node which will be appended to current node
-   * @return {DoublyLinkedNode} current node
+   * @returns {DoublyLinkedNode} current node
    */
   setLink(node){
     let isDLN = node instanceof DoublyLinkedNode;
