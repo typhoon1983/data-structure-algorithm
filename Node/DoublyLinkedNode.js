@@ -8,8 +8,8 @@ import Node from './Node';
  */
 
 export default class DoublyLinkedNode extends Node {
-  constructor(data) {
-    super(data);
+  constructor(...args) {
+    super(...args);
     this.next = null;
     this.prior = null;
   }
@@ -26,6 +26,22 @@ export default class DoublyLinkedNode extends Node {
       if(node !== null){
         node.prior = this;
       }
+      return this;
+    }
+    else{
+      throw new TypeError('TypeError: node is not instance of DoublyLinkedNode');
+    }
+  }
+
+  /**
+   * Set the pointer/s of current node to link to specified node or null
+   * @param {DoublyLinkedNode|null} node target node which will be pointed to
+   * @returns {DoublyLinkedNode} current node
+   */
+  setPointer(node){
+    let isDLN = node instanceof DoublyLinkedNode;
+    if(isDLN || node === null){
+      this.prior = this.next = node;
       return this;
     }
     else{

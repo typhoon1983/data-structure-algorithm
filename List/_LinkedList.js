@@ -9,13 +9,14 @@ export default class ListLinked {
     }
     this.NodeType = new.target.nodeType;
     this.head = new this.NodeType();
+    this.tail = new.target.tail ? this[new.target.tail] : null;
     this.length = 0;
-    elements.reduce((accumulator,currentValue)=>{
+    elements.reduce((priorNode,currentValue)=>{
       let node = new this.NodeType(currentValue);
-      accumulator.setLink(node);
+      priorNode.setLink(node);
       this.length++;
       return node;
-    },this.head)
+    },this.head).setLink(this.tail);
   }
 
   /*
@@ -24,6 +25,7 @@ export default class ListLinked {
    */
   clearList(){
     this.length = 0;
+    this.head.setPointer(this.tail);
     return this;
   }
 
