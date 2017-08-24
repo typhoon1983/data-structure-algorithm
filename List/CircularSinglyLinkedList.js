@@ -4,33 +4,38 @@ import MixinCircular from './_MixinCircular';
 
 export default class CircularSinglyLinkedList extends MixinCircular(MixinSingly(LinkedList)) {
 
-  /*
-   *  Empty the LinkList, inherited from Circular
-   *  @return this LinkList after empty.
+  /**
+   * Empty the list by reset length and pointer
+   * @return the empty list.
+   * @example circularSinglyLinkedList.clearList()
    */
 
-  /*
-   *  getElement by specify index(1-based), inherited from Circular
-   *  @param i, index(1-based)
-   *  @return value of the element on the specified index
+  /**
+   * Get node on the specified index(1-based)
+   * @param {Number} i, index(1-based)
+   * @return {SinglyLinkedNode|null} the node on the specified index or throw a range error if index is out of range
+   * @example circularSinglyLinkedList.getElement(1)
    */
 
-  /*
-   *  Return element(first appearance) index(1-based) by specify a value, inherited from Circular
-   *  @param x, the value target element holds
-   *  @return the index(1-based) of the target element if exists, otherwise null
+  /**
+   * Get index(first occurrence, 1-based) of the node which has value matching the specified value
+   * @param {Number|String|Null} x, value that target node holds
+   * @return {Number} index of the target node if it exists, otherwise -1
+   * @example circularSinglyLinkedList.getElementIndex('1')
    */
 
-  /*
-   *  Insert element at the specified index(1-based), inherited from SinglyLinkedList
-   *  @param x, value the element holds
-   *  @param i, index(1-based)
-   *  @return this LinkedList after insert
+  /**
+   * Insert node on the specified index(1-based)
+   * @param {Number|String|Null} x, value the new node holds
+   * @param {Number} i, index(1-based) which the new node will sit on
+   * @return {CircularSinglyLinkedList} current list or throw a range error if i is out of range
+   * @example circularSinglyLinkedList.insertElement('2',2)
    */
 
-  /*
-   *  Delete element at the specified index(1-based), inherited from SinglyLinkedList
-   *  @param i, index(1-based)
-   *  @return this LinkedList after deletion
+  /**
+   * Delete node on the specified index(1-based)
+   * @param {Number} i, index(1-based)
+   * @return {SinglyLinkedNode|null} deleted node if exists or null if index not valid
+   * @example circularSinglyLinkedList.deleteElement(2)
    */
 }

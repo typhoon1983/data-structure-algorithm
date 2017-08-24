@@ -2,8 +2,7 @@ import SinglyLinkedNode from '../Node/SinglyLinkedNode';
 
 /**
  * Singly Mixin, extends the Base Class with
- * 1. Getter nodeType,
- * 2. Augmented Function clearList.
+ * - Getter nodeType,
  */
 
 export default (Base) => class extends Base {
