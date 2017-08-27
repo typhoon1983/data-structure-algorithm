@@ -2,9 +2,6 @@ import Node from '../Node/Node';
 
 /**
  * Sequential List Class
- * consists of generic methods in different type of Linked List
- * Should be used in Class extension rather than directly as constructor
- * Static getter NodeType and tail are required in the final extended Class
  */
 
 class SequentialList {
