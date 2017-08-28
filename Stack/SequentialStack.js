@@ -4,7 +4,7 @@ import Node from '../Node/Node';
  * Sequential Stack Class
  */
 
-class SequentialStack {
+export default class SequentialStack {
 
   /**
    * Constructor, create the SequentialStack instance.
@@ -26,7 +26,7 @@ class SequentialStack {
    */
   push(x){
     if(this.top === this.maxSize){
-      throw new RangeError('Stack is full.')
+      throw new RangeError('Stack is full')
     }
     this.elements.push(new Node(x));
     this.top++;
@@ -54,7 +54,7 @@ class SequentialStack {
   }
 
   /**
-   * Get the top node in the stack, without removing it from the stack
+   * Getter, return the top node in the stack, without removing it from the stack
    * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
    */
   get topElem(){

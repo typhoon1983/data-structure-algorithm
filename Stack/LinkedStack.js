@@ -4,7 +4,7 @@ import SinglyLinkedNode from '../Node/SinglyLinkedNode';
  * Linked Stack Class
  */
 
-class LinkedStack {
+export default class LinkedStack {
 
   /**
    * Constructor, create the LinkedStack instance.
@@ -14,12 +14,9 @@ class LinkedStack {
     this.top = new SinglyLinkedNode();
     this.length = 0;
     // Link nodes together
-    elements.reduce((priorNode,currentValue)=>{
-      let node = new SinglyLinkedNode(currentValue);
-      priorNode.setLink(node);
-      this.length++;
-      return node;
-    },this.top);
+    elements.forEach((element)=>{
+      this.push(element);
+    })
   }
 
   /**
@@ -57,7 +54,7 @@ class LinkedStack {
   }
 
   /**
-   * Get the top node in the stack, without removing it from the stack
+   * Getter, return the top node in the stack, without removing it from the stack
    * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
    */
   get topElem(){
