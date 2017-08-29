@@ -35,14 +35,13 @@ export default class SequentialStack {
 
   /**
    * Pop the top node out of stack
-   * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
+   * @return {Node} top node in the stack or null if stack is empty
    */
   pop(){
-    if(this.top === 0){
+    if(this.isEmpty()){
       return null;
     }
-    this.top--;
-    return this.elements[this.top];
+    return this.elements[--this.top];
   }
 
   /**
@@ -55,9 +54,9 @@ export default class SequentialStack {
 
   /**
    * Getter, return the top node in the stack, without removing it from the stack
-   * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
+   * @return {Node} top node in the stack or null if stack is empty
    */
   get topElem(){
-    return this.top === 0 ? null : this.elements[this.top - 1];
+    return this.isEmpty() ? null : this.elements[this.top - 1];
   }
 }

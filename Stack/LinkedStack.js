@@ -36,7 +36,7 @@ export default class LinkedStack {
    * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
    */
   pop(){
-    if(this.top.next === null){
+    if(this.isEmpty()){
       return null;
     }
     let popNode = this.top.next;
