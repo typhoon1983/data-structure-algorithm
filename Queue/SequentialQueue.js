@@ -2,6 +2,7 @@ import Node from '../Node/Node';
 
 /**
  * Sequential Queue Class
+ * Not an optimised solution, possible to have false overflow
  */
 
 export default class SequentialQueue {
@@ -21,16 +22,27 @@ export default class SequentialQueue {
   }
 
   /**
+   * Static method, get the next index pointer is moving to
+   * @param {Number} index, current index pointer is at
+   */
+  static getNextIndex(index, maxSize) {
+    if(index >= 0){
+      return ++index;
+    }
+    throw new RangeError('Out of Range, index is not valid');
+  }
+
+  /**
    * Insert element into queue
    * @param {Number|String|Null} x, new value to be insert into the queue
    * @return {SequentialQueue} current Linkedqueue instance
    */
   enQueue(x){
-    if(this.rear === this.maxSize){
+    if(this.isFull()){
       throw new RangeError('queue is full')
     }
-    this.elements.push(new Node(x));
-    this.rear++;
+    this.elements.[this.rear] = new Node(x);
+    this.rear = new.target.getNextIndex(this.rear, this.maxSize);
     return this;
   }
 
@@ -42,7 +54,9 @@ export default class SequentialQueue {
     if(this.isEmpty()){
       return null;
     }
-    return this.elements[this.front++];
+    let frontNode = this.elements[this.front];
+    this.front = new.target.getNextIndex(this.front, this.maxSize);
+    return frontNode;
   }
 
   /**
@@ -51,6 +65,14 @@ export default class SequentialQueue {
    */
   isEmpty(){
     return this.front === this.rear;
+  }
+
+  /**
+   * Check if queue is full, may have false overflow
+   * @return {Boolean} True if queue is full, false if not
+   */
+  isFull(){
+    return this.rear === this.maxSize;
   }
 
   /**
