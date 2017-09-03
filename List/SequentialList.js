@@ -1,7 +1,7 @@
 import Node from '../Node/Node';
 
 /**
- * Sequential List Class
+ * Sequential List Class, (Array List)
  */
 
 class SequentialList {
