@@ -54,7 +54,7 @@ export default class LinkedStack {
   }
 
   /**
-   * Getter, return the top node in the stack, without removing it from the stack
+   * Getter, (Peek), return the top node in the stack, without removing it from the stack
    * @return {SinglyLinkedNode} top node in the stack or null if stack is empty
    */
   get topElem(){
