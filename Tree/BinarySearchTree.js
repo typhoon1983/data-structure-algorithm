@@ -29,7 +29,6 @@ export default class BST{
         this.left = new BST(value);
       }
     }
-    console.log(this);
     return this;
   }
 }

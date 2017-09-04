@@ -13,3 +13,7 @@ export default function quickSort(nums){
   })
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
+
+
+//quick sort 3
+//[1,2,3,4,5] pick 3(middle) as pivot
