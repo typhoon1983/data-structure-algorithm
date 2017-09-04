@@ -22,14 +22,11 @@ export default class SequentialQueue {
   }
 
   /**
-   * Static method, get the next index pointer is moving to
+   * Private function, Get the next index pointer is moving to
    * @param {Number} index, current index pointer is at
    */
-  static getNextIndex(index, maxSize) {
-    if(index >= 0){
-      return ++index;
-    }
-    throw new RangeError('Out of Range, index is not valid');
+  _getNextIndex(index, maxSize) {
+    return ++index;
   }
 
   /**
@@ -39,10 +36,10 @@ export default class SequentialQueue {
    */
   enQueue(x){
     if(this.isFull()){
-      throw new RangeError('queue is full')
+      throw new RangeError('Queue is full')
     }
-    this.elements.[this.rear] = new Node(x);
-    this.rear = new.target.getNextIndex(this.rear, this.maxSize);
+    this.elements[this.rear] = new Node(x);
+    this.rear = this._getNextIndex(this.rear, this.maxSize);
     return this;
   }
 
@@ -55,7 +52,7 @@ export default class SequentialQueue {
       return null;
     }
     let frontNode = this.elements[this.front];
-    this.front = new.target.getNextIndex(this.front, this.maxSize);
+    this.front = this._getNextIndex(this.front, this.maxSize);
     return frontNode;
   }
 
@@ -79,7 +76,7 @@ export default class SequentialQueue {
    * Getter, return the front node in the queue, without removing it from the queue
    * @return {Node} top node in the queue or null if queue is empty
    */
-  get topElem(){
+  get frontElem(){
     return this.isEmpty() ? null : this.elements[this.front];
   }
 }

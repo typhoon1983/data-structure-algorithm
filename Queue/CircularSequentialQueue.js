@@ -14,10 +14,10 @@ export default class CircularSequentialQueue extends SequentialQueue {
    */
 
   /**
-   * Static method, get the next index pointer is moving to
+   * Private function, Get the next index pointer is moving to
    * @param {Number} index, current index pointer is at
    */
-  static getNextIndex(index, maxSize) {
+  _getNextIndex(index, maxSize) {
     if(index >= 0){
       return (index + 1) % maxSize
     }
