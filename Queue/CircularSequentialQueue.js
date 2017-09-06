@@ -12,16 +12,18 @@ export default class CircularSequentialQueue extends SequentialQueue {
    * @param {Array} elements, array of value to be add into the queue(FIFO)
    * @param {Number} maxSize, max number of nodes the queue will be storing
    */
+   constructor(elements, maxSize) {
+     super(elements, maxSize > 1 ? maxSize - 1 : 0);
+     this.maxSize = maxSize;
+   }
+
 
   /**
    * Private function, Get the next index pointer is moving to
    * @param {Number} index, current index pointer is at
    */
   _getNextIndex(index, maxSize) {
-    if(index >= 0){
-      return (index + 1) % maxSize
-    }
-    throw new RangeError('Out of Range, index is not valid');
+    return (index + 1) % maxSize
   }
 
   /**

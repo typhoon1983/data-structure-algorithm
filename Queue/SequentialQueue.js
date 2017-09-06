@@ -69,7 +69,7 @@ export default class SequentialQueue {
    * @return {Boolean} True if queue is full, false if not
    */
   isFull(){
-    return this.rear === this.maxSize;
+    return this.rear === this.maxSize && this.rear != 0;
   }
 
   /**

@@ -72,7 +72,7 @@ test('SequentialQueue isFull', () => {
   queueB.deQueue();
   expect(queueB.isFull()).toBe(true); //deQueue doesn't remove element, queue is still full.
   expect(queueC.isFull()).toBe(false);
-  expect(queueD.isFull()).toBe(true);
+  expect(queueD.isFull()).toBe(false);
 });
 
 test('SequentialQueue frontElem', () => {
