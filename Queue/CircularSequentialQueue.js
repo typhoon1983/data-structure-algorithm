@@ -34,7 +34,7 @@ export default class CircularSequentialQueue extends SequentialQueue {
 
   /**
    * Pop the front node out of queue
-   * @return {Node} top node in the queue or null if queue is empty
+   * @return {Node} front node in the queue or null if queue is empty
    */
 
   /**
@@ -52,6 +52,6 @@ export default class CircularSequentialQueue extends SequentialQueue {
 
   /**
    * Getter, return the front node in the queue, without removing it from the queue, inherit from Class SequentialQueue
-   * @return {Node} top node in the queue or null if queue is empty
+   * @return {Node} front node in the queue or null if queue is empty
    */
 }
